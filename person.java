@@ -9,11 +9,11 @@ public class person{
 public person(int mydestination, int mystart){
     destination=mydestination;
     location =mystart;
-    if(location >location){
-        direction=true;
+    if(location >destination){
+        direction=false;
 
     }else{
-        direction = false;
+        direction = true;
     }
 
 
