@@ -6,9 +6,9 @@ private ArrayList<person> waitingright;
 
 private ArrayList<person> arrived;
 private int stationnum;
-private int numgen = 0;
+private int numgen = 1;
 
-private station(){
+public station(){
     stationnum = numgen;
         numgen++;
         waitingleft = new ArrayList<person>();
@@ -26,7 +26,9 @@ public void addPerson(person p){
         waitingleft.add(p);
     }
 }
-
+public String toString(){
+    return super.toString() + " Station num: "+ stationnum+" Arrived: "+arrived+" Passengers going right: "+waitingright+ " Passnger waiting left: "+waitingleft;
+}
 }
 
 

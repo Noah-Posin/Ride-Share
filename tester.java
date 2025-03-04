@@ -12,7 +12,18 @@ public class tester {
     System.out.println(n);
     n.addPassenger(a);
     System.out.println(n);
+    n.move();
+    n.move();
     System.out.println(n.unload());
-
+    System.out.println(n);
+    station w = new station();
+    station q= new station();
+    station r = new station();
+    station s = new station();
+    station t = new station();
+    station u = new station();
+    station v = new station();
+    v.addPerson(a);
+    System.out.println(v);
 }
 }
