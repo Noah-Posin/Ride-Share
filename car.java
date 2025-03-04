@@ -49,6 +49,9 @@ public class car {
             location--;
         }
     }
+    public int getLocation(){
+        return location;
+    }
     }
 
 
