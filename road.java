@@ -32,11 +32,37 @@ for( int i = 1;i<numcars; i++){
 public void moveCar(){
     for(car c : cars){
         c.unload();
-        int a =car.getLocation
-    }
+       
+        int a =c.getLocation();
+        for( station x : stations){
+            int r=x.getNum();
+            if(a==r){
+               if(c.getDirection()==true){
+               if(c.hasRoom()==true){
+                person p = x.nextRight();
+                if(p!= null){
+                c.addPassenger(p);
+                }
+               }
+            }
+               }else{
+                if(c.hasRoom()==true){
+                person p = x.nextLeft();
+                if(p != null){
+                c.addPassenger(p);
+                             }
+
+                        }
+                    }
+                }
+                    c.move();
+                }
+            }
+        
+    
     
 
-}
+
 
 
 public String toString(){

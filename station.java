@@ -16,6 +16,28 @@ public station(){
         arrived=  new ArrayList<person>();
     
 }
+
+public person nextRight(){
+    if(waitingright.size()>0){
+        return waitingright.remove(0);
+
+    }
+    else{
+        return null;
+    }
+}
+public person nextLeft(){
+    if(waitingleft.size()>0){
+        return waitingleft.remove(0);
+
+    }
+    else{
+        return null;
+    }
+}
+public int getNum(){
+    return stationnum;
+}
 public void addPerson(person p){
     if(p.getDestination()==stationnum){
         arrived.add(p);

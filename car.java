@@ -17,6 +17,7 @@ public class car {
         ", Destination: " + destination + ", Going right? "+direction+ ", Passengers: "+passengers;
     }
     public void addPassenger(person p){
+       
         if(passengers.size()>= 3){
             System.out.println("Error, car full");
          } else if(p.getDirection()!=direction){
@@ -25,6 +26,9 @@ public class car {
         }else{
         passengers.add(p);  
         }  
+    }
+    public boolean getDirection(){
+        return direction;
     }
         public boolean hasRoom(){
         return passengers.size()< 3;
