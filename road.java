@@ -13,11 +13,13 @@ public road(){
     }
 
 }
-public void buildStations(int numppl){
-for( int i = 1;i<numppl; i++){
+public void buildStations(int numppl, int numstations){
+for( int j = 1; j <numstations;j++){
+    for( int i = 1;i<numppl; i++){
     int start = (int)(Math.random()*numppl);
     int stop = (int)(Math.random()*numppl);
     stations[start].addPerson(new person(stop,start));
+}
 }
 }
 public void buildCars(int numcars){
