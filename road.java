@@ -8,7 +8,7 @@ public road(){
 
     cars=new ArrayList<car>();
     stations = new station[32];
-    for(int i = 1;i<stations.length; i++){
+    for(int i = 0;i<stations.length; i++){
         stations[i]= new station();
     }
 
