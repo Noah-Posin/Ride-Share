@@ -6,7 +6,7 @@ private ArrayList<person> waitingright;
 
 private ArrayList<person> arrived;
 private int stationnum;
-private int numgen = 1;
+ private static int numgen = 1;
 
 public station(){
     stationnum = numgen;
@@ -38,6 +38,7 @@ public person nextLeft(){
 public int getNum(){
     return stationnum;
 }
+
 public void addPerson(person p){
     if(p.getDestination()==stationnum){
         arrived.add(p);
@@ -48,8 +49,11 @@ public void addPerson(person p){
         waitingleft.add(p);
     }
 }
+
+
 public String toString(){
-    return super.toString() + " Station num: "+ stationnum+" Arrived: "+arrived+" Passengers going right: "+waitingright+ " Passnger waiting left: "+waitingleft;
+    return super.toString() + " Station num: "+ stationnum+" Arrived: "+arrived+" Passengers going right: "+waitingright+ " Passnger waiting left: "+waitingleft+"\n\n";
+    
 }
 }
 

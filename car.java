@@ -4,11 +4,13 @@ public class car {
     private int location;
     private boolean direction;
     private ArrayList<person> passengers;
+    private int unloaded;
 
     public car(int mdestination, int mylocation){
         destination=mdestination;
         location=mylocation;
         direction = destination>location;
+        unloaded=0;
         passengers = new ArrayList<person>();
     }
 
@@ -35,13 +37,18 @@ public class car {
         }       
 /** method for desciding if a person in the car is elligible to be dropped off*/
     public person unload(){
+        
         for (int i = 0;i<passengers.size();i++){
             person a = passengers.get(i);
             if(a.getDestination()==location){
+                unloaded++;
                 return passengers.remove(i);
             }
         }
         return null;
+    }
+    public int totalpeoplearrived(){
+        return unloaded;
     }
     public void move(){
         if(location==destination){
