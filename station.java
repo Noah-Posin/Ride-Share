@@ -39,11 +39,23 @@ public int getNum(){
     return stationnum;
 }
 
-public void addPerson(person p){
+public ArrayList<person> addArrived(person p){
     if(p.getDestination()==stationnum){
         arrived.add(p);
+        
+    }else{
+        
     }
-    else if(p.getDirection()){
+    return arrived;
+    
+    }
+    public int getArrived(){
+        return arrived.size();
+}
+public void addPerson(person p){
+
+
+     if(p.getDirection()){
         waitingright.add(p);
     }else{
         waitingleft.add(p);

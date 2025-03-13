@@ -34,21 +34,29 @@ for( int i = 1;i<numcars; i++){
     cars.add(new car(stop,start));
     }
 }
-public 
+
 
 public void moveCar(){
-    for(car c : cars){ 
-        person p = c.unload();
-        
-       
-       
-        int a =c.getLocation();
-        for( station x : stations){
+   
+        for (car c : cars) {
             
-            int r=x.getNum();
-            if(a==r){
-                x.addPerson(p);
-               if(c.getDirection()==true){
+            person p = null; 
+           
+            if (c.room() > 0) {
+                p = c.unload(); 
+            }
+    
+            int a = c.getLocation(); 
+            
+           
+            for (station x : stations) {
+                
+                int r = x.getNum(); 
+                if (a == r) { 
+                    if (p != null) {
+                        x.addArrived(p);
+                    }
+              else if(c.getDirection()==true){
                if(c.hasRoom()==true){
                 person t = x.nextRight();
                 if(t!= null){
@@ -66,6 +74,7 @@ public void moveCar(){
                         }
                     }
                 }
+            
                     c.move();
                 }
             }
@@ -87,8 +96,8 @@ public String toString(){
 }
 public double percentarrived(){
     int total = 0;
-    for( car c : cars){
-        total+=c.totalpeoplearrived();
+    for( station sc : stations){
+        total+=sc.getArrived();
     }
     return((total/50.0)*100.0);
 }

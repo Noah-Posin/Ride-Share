@@ -4,7 +4,7 @@ public class tester {
 
 final int NUMCARS = 20;
 final int NUMSTATIONS=32;
-final int NUMPASSENGERS =15;
+final int NUMPASSENGERS =50;
 //call road. build cars and stations
 road r = new road();
 r.buildCars(NUMCARS, NUMSTATIONS);

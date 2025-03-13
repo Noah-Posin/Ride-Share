@@ -34,7 +34,10 @@ public class car {
     }
         public boolean hasRoom(){
         return passengers.size()< 3;
-        }       
+        }  
+        public int room(){
+            return passengers.size();
+        }     
 /** method for desciding if a person in the car is elligible to be dropped off*/
     public person unload(){
         
@@ -47,9 +50,8 @@ public class car {
         }
         return null;
     }
-    public int totalpeoplearrived(){
-        return unloaded;
-    }
+    
+
     public void move(){
         if(location==destination){
             return;
