@@ -11,7 +11,7 @@ public static void main(String[] args) {
    for(int i = 0; i < 30; i++){
       System.out.println("RUN: " + i);
       System.out.println("----------");
-      //System.out.println(r);
+      System.out.println(r);
       r.moveCars();
    }
 

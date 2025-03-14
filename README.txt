@@ -20,5 +20,11 @@ Road
     -calculates the number of people that have arrived
 
 
+Percent Arrives
+    -For both 20 cars and 40 cars with 50 people, I get around 35-48 percent of people arrive each time
+    -the number would be higher if cars started at both ends and then ended at the other end, or if cars could turn around.
+    -there are just not enough cars going to the correct destinations for the amount of people
+
+
 
     

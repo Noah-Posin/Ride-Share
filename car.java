@@ -25,11 +25,11 @@ public class car {
         }else{
            if (p.getDirection()==true && p.getDestination()<destination){
                 passengers.add(p);
-                System.out.println("passenger succefully added!! going right");  
+                
            }
             else if (p.getDirection() != true && p.getDestination() > destination){
                 passengers.add(p);
-                System.out.println("passenger succefully added!! going left"); 
+                
             }
         }
     }

@@ -23,7 +23,7 @@ public void buildStations(int numppl, int numstations){
         }
         person p = new person(stop,start);
         stations[start].addPerson(p);
-        System.out.println(p);
+        
     }
 }
 public void buildCars(int numcars, int numstations){
@@ -34,7 +34,7 @@ public void buildCars(int numcars, int numstations){
             stop = (int)(Math.random()*numcars);
         }
         car c = new car(stop,start);
-        System.out.println(c);
+        
         cars.add(c);
     }
 }
@@ -57,7 +57,7 @@ public int getStationIndex(int num){
             station x = stations[getStationIndex(c.getLocation())];
             if (p != null) {
                 x.addArrived(p);
-                System.out.println("someone arrived"+p);
+                
             }
                 
                 if(c.getDirection()==true){
