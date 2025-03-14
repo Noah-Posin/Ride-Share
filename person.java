@@ -29,7 +29,7 @@ public int getLocation(){
 }
 
 public String toString(){
-    return super.toString() +"start: " + location + ", Destination: " + destination + ", Going right? "+direction;
+    return super.toString() +" start: " + location + ", Destination: " + destination + ", Going right? "+direction;
 }
 }
 

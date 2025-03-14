@@ -4,36 +4,42 @@ public class car {
     private int location;
     private boolean direction;
     private ArrayList<person> passengers;
-    private int unloaded;
+   
 
     public car(int mdestination, int mylocation){
         destination=mdestination;
         location=mylocation;
         direction = destination>location;
-        unloaded=0;
         passengers = new ArrayList<person>();
     }
 
     public String toString(){
-        return super.toString() + "start: " + location + 
+        return super.toString() + " start: " + location + 
         ", Destination: " + destination + ", Going right? "+direction+ ", Passengers: "+passengers;
     }
     public void addPassenger(person p){
-       
-        if(passengers.size()>= 3){
+        if(passengers.size() >= 3){
             System.out.println("Error, car full");
-         } else if(p.getDirection()!=direction){
+        }else if(p.getDirection() != direction){
             System.out.println("ERROR, trying to go the wrong direction");
-        
         }else{
-        passengers.add(p);  
-        }  
+           if (p.getDirection()==true && p.getDestination()<destination){
+                passengers.add(p);
+                System.out.println("passenger succefully added!! going right");  
+           }
+            else if (p.getDirection() != true && p.getDestination() > destination){
+                passengers.add(p);
+                System.out.println("passenger succefully added!! going left"); 
+            }
+        }
     }
+         
+    
     public boolean getDirection(){
         return direction;
     }
         public boolean hasRoom(){
-        return passengers.size()< 3;
+        return passengers.size() < 3;
         }  
         public int room(){
             return passengers.size();
@@ -41,10 +47,10 @@ public class car {
 /** method for desciding if a person in the car is elligible to be dropped off*/
     public person unload(){
         
-        for (int i = 0;i<passengers.size();i++){
+        for (int i = 0; i<passengers.size(); i++){
             person a = passengers.get(i);
-            if(a.getDestination()==location){
-                unloaded++;
+            if(a.getDestination() == location){
+                
                 return passengers.remove(i);
             }
         }

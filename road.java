@@ -4,10 +4,10 @@ public class road {
 private station[] stations;
 private ArrayList<car> cars;
 
-public road(){
+public road(int numStations){
 
     cars=new ArrayList<car>();
-    stations = new station[32];
+    stations = new station[numStations];
     for(int i = 0;i<stations.length; i++){
         stations[i]= new station();
     }
@@ -15,72 +15,72 @@ public road(){
 }
 public void buildStations(int numppl, int numstations){
 
-    for( int i = 1;i<numppl; i++){
-    int start = (int)(Math.random()*numstations);
-    int stop = (int)(Math.random()*numstations);
-    if(start==stop){
-        stop = (int)(Math.random()*numstations);
+    for(int i = 0; i<numppl; i++){
+        int start = (int)(Math.random()*numstations);
+        int stop = (int)(Math.random()*numstations);
+        while(start==stop){
+            stop = (int)(Math.random() * numstations);
+        }
+        person p = new person(stop,start);
+        stations[start].addPerson(p);
+        System.out.println(p);
     }
-    stations[start].addPerson(new person(stop,start));
-}
 }
 public void buildCars(int numcars, int numstations){
-for( int i = 1;i<numcars; i++){
-    int start = (int)(Math.random()*numstations);
-    int stop = (int)(Math.random()*numstations);
-    // if(start==stop){
-    //     stop = (int)(Math.random()*numcars);
-    // }
-    cars.add(new car(stop,start));
+    for(int i = 0; i<numcars; i++){
+        int start = (int)(Math.random()*numstations);
+        int stop = (int)(Math.random()*numstations);
+        while(start==stop){
+            stop = (int)(Math.random()*numcars);
+        }
+        car c = new car(stop,start);
+        System.out.println(c);
+        cars.add(c);
     }
 }
 
-
-public void moveCar(){
-   
+public int getStationIndex(int num){
+    for(int i = 0;i<stations.length; i++){
+        if(stations[i].getNum() == num){
+            return i;
+        }
+    }
+        return 0;
+    }
+    public void moveCars(){ 
         for (car c : cars) {
-            
             person p = null; 
-           
             if (c.room() > 0) {
                 p = c.unload(); 
             }
-    
-            int a = c.getLocation(); 
             
-           
-            for (station x : stations) {
-                
-                int r = x.getNum(); 
-                if (a == r) { 
-                    if (p != null) {
-                        x.addArrived(p);
-                    }
-              else if(c.getDirection()==true){
-               if(c.hasRoom()==true){
-                person t = x.nextRight();
-                if(t!= null){
-                c.addPassenger(t);
-                }
-               }
+            station x = stations[getStationIndex(c.getLocation())];
+            if (p != null) {
+                x.addArrived(p);
+                System.out.println("someone arrived"+p);
             }
-               }else{
-                if(c.hasRoom()==true){
-                person s = x.nextLeft();
-                if(s != null){
-                c.addPassenger(s);
-                             }
-
+                
+                if(c.getDirection()==true){
+                    if(c.hasRoom()==true){
+                        person t = x.nextRight();
+                        if(t!= null){
+                            c.addPassenger(t);
+                        }
+                    }
+                }
+                else{
+                    if(c.hasRoom()==true){
+                        person s = x.nextLeft();
+                        if(s != null){
+                            c.addPassenger(s);
                         }
                     }
                 }
             
-                    c.move();
-                }
-            }
+            c.move();
+        }
+    }
         
-
-
 public String toString(){
 
     String s ="";
