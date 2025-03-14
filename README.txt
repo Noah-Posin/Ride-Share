@@ -7,4 +7,18 @@ Car
     -unloads all passengers if they are at their destination and returns them
     -add passengers: if the car has room, is moving in the same direction of the passenger, and the passeger wont be stuck in the car once the car reaches its destination, the car is added
 
-Stations
+Station
+    -getter methods to return all fields of a station
+    -stores people waiting in two different fields based on direction
+    -returns and removes people from the waiting fields
+    -add people if they are at the correct destination to arrived array list and returns its size
+
+Road
+    -puts each person into a random station with a random destination
+    -creates a random destination and location for each car
+    -for each car, unloads the car if possible then adds the people to arrived array for the certain station, then takes from all the people waiting and facilitates their addition to a correct car, moves each car.
+    -calculates the number of people that have arrived
+
+
+
+    
